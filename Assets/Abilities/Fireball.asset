@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   name: Fireball
-  cdTime: 1
+  cdTime: 0.1
   activeTime: 0
   objectToSpawn: {fileID: 540318681031352711, guid: f0f78a8c7cbbd0042907570eeec01069, type: 3}
   spawnPoint: {fileID: 11400000, guid: 6e81275ae7d36b04a8dca840dc07eb0b, type: 2}

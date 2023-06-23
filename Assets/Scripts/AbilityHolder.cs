@@ -5,7 +5,9 @@ using UnityEngine;
 public class AbilityHolder : MonoBehaviour
 {
     [SerializeField] private Ability ability;
-    [SerializeField] private KeyCode key;
+    [SerializeField, HideInInspector] private bool isMouseAbility = false;
+    [SerializeField, HideInInspector] private KeyCode key;
+    [SerializeField, HideInInspector] private int mouseCode;
 
     enum AbilityState
     {
@@ -24,12 +26,24 @@ public class AbilityHolder : MonoBehaviour
         switch(state)
         {
             case AbilityState.READY:
-                if (Input.GetKeyDown(key))
+                if (isMouseAbility)
                 {
-                    ability.Activate();
-                    state = AbilityState.ACTIVE;
-                    currentActiveTime = ability.activeTime;
+                    if (Input.GetMouseButtonDown(mouseCode))
+                    {
+                        ability.Activate();
+                        state = AbilityState.ACTIVE;
+                        currentActiveTime = ability.activeTime;
+                    }
                 }
+                else
+                {
+                    if (Input.GetKeyDown(key))
+                    {
+                        ability.Activate();
+                        state = AbilityState.ACTIVE;
+                        currentActiveTime = ability.activeTime;
+                    }
+                }                
             break;
             case AbilityState.ACTIVE:
                 if(currentActiveTime > 0)

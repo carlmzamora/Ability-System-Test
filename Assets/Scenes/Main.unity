@@ -2123,7 +2123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: e7c6b62c1810a1c4689923348c160b46, type: 2}
+  isMouseAbility: 1
   key: 111
+  mouseCode: 0
 --- !u!1 &1040495526
 GameObject:
   m_ObjectHideFlags: 0
